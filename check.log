@@ -1,0 +1,17 @@
+numpy ok
+pandas ok
+Traceback (most recent call last):
+  File "D:\Hackathon\Project 3\test_deps.py", line 7, in <module>
+    import sklearn
+  File "D:\Hackathon\Project 3\.venv\Lib\site-packages\sklearn\__init__.py", line 87, in <module>
+    from .base import clone
+  File "D:\Hackathon\Project 3\.venv\Lib\site-packages\sklearn\base.py", line 19, in <module>
+    from .utils import _IS_32BIT
+  File "D:\Hackathon\Project 3\.venv\Lib\site-packages\sklearn\utils\__init__.py", line 16, in <module>
+    from scipy.sparse import issparse
+  File "D:\Hackathon\Project 3\.venv\Lib\site-packages\scipy\sparse\__init__.py", line 308, in <module>
+    from ._csr import *
+  File "D:\Hackathon\Project 3\.venv\Lib\site-packages\scipy\sparse\_csr.py", line 11, in <module>
+    from ._sparsetools import (csr_tocsc, csr_tobsr, csr_count_blocks,
+                               get_csr_submatrix, csr_sample_values)
+ImportError: numpy._core.multiarray failed to import

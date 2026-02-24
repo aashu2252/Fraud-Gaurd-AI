@@ -1,4 +1,10 @@
-2026-02-23 12:16:52,927 | INFO | Working dir: d:\Hackathon\Project 3\ml
-2026-02-23 12:16:52,928 | INFO | Python: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
-2026-02-23 12:16:52,928 | INFO | ==================================================
-2026-02-23 12:16:52,929 | INFO | STEP 1: Generating synthetic transactions...
+2026-02-24 14:07:50,022 | INFO | Working dir: D:\Hackathon\Project 3\ml
+2026-02-24 14:07:50,023 | INFO | Python: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2026-02-24 14:07:50,023 | INFO | ==================================================
+2026-02-24 14:07:50,023 | INFO | STEP 1: Generating synthetic transactions...
+2026-02-24 14:07:50,777 | ERROR | FAILED Step1:
+Traceback (most recent call last):
+  File "D:\Hackathon\Project 3\ml\run_all.py", line 26, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+

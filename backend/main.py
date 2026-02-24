@@ -26,6 +26,19 @@ async def lifespan(app: FastAPI):
     # Initialize database (create tables)
     await init_db()
     logger.info("✅ Database initialized")
+    
+    # Auto-train if models are missing
+    import os
+    if not os.path.exists(settings.model_path) or not os.path.exists(settings.feature_names_path):
+        logger.info("🔧 ML model not found on disk. Generating model locally...")
+        try:
+            from startup_train import train_model
+            train_model()
+            logger.info("✅ Auto-training complete!")
+        except Exception as e:
+            logger.error(f"❌ Auto-training failed: {e}")
+            logger.warning("⚠️  Falling back to rule-based scoring.")
+
     # Load ML model
     model_service.load_model(settings.model_path, settings.feature_names_path)
     yield
@@ -58,7 +71,7 @@ app.include_router(transactions.router)
 app.include_router(risk.router)
 
 
-@app.get("/", tags=["Health"])
+@app.api_route("/", methods=["GET", "HEAD"], tags=["Health"])
 async def root():
     return {
         "system": "ReturnGuard AI",
@@ -69,6 +82,6 @@ async def root():
     }
 
 
-@app.get("/health", tags=["Health"])
+@app.api_route("/health", methods=["GET", "HEAD"], tags=["Health"])
 async def health():
     return {"status": "ok"}
